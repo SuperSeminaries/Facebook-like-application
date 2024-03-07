@@ -27,14 +27,12 @@ router.route('/refreshToken').post(verifyjwt,refreshAccesToken) // refresh acces
 
 // /-----  User Profile Routes:   ------/
 
-router.route('/').get(getUserById) // Get user profile details by ID.
-router.route('/').patch(updateUserById) //  Update user profile details.
-router.route('/').delete(deleteUserById) // Delete user account.
+router.route('/').get(verifyjwt, getUserById) // Get user profile details by ID.
+router.route('/').patch(verifyjwt, updateUserById) //  Update user profile details.
+router.route('/').delete(verifyjwt, deleteUserById) // Delete user account.
 
 
 
-
-// /-----  -----/
 
 
 export default router;

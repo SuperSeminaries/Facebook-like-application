@@ -11,9 +11,11 @@ app.use(cookieParser())
 import authRoutes from "./src/routes/user.routes.js"
 import userRoutes from "./src/routes/user.routes.js"
 import postRoutes from "./src/routes/post.routes.js"
+import searchRoutes from "./src/routes/search.routes.js"
 
 app.use('/api/auth', authRoutes)
 app.use('/api/users', userRoutes)
 app.use('/api/posts', postRoutes)
+app.use('/api/search', searchRoutes)
 
 export { app };

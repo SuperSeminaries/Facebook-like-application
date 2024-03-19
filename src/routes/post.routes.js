@@ -3,6 +3,7 @@ import { createPost, deletePostById, getAllPosts, getPostById, updatePostById } 
 import { verifyjwt } from "../middlewares/auth.middlewares.js";
 import { upload } from "../middlewares/multer.middlewares.js";
 import { addCommentToPost, deleteComment, getCommentsForPost, updateComment } from "../controllers/comments.controllers.js";
+import { Unlike, like } from "../controllers/likes.controllers.js";
 const router = Router()
 
 // /----  Post Routes: ----/
@@ -22,5 +23,10 @@ router.route('/:postId/comments/:commentId').put(verifyjwt, updateComment ) // U
 router.route('/:postId/comments/:commentId').delete(verifyjwt, deleteComment ) //  Delete a comment.
 
 
+ 
+// /------ Like Routes:    -----/
+
+router.route('/:postId/like').post(verifyjwt, like) //  Like a post.
+router.route('/:postId/like').delete(verifyjwt,Unlike) // Unlike a post.
 
 export default router
